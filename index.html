@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartCorrect Pro - AI-Powered Text Enhancement</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fas fa-spell-check"></i>
+            SmartCorrect<span class="pro-badge">Pro</span>
+        </div>
+        <div class="nav-links">
+            <a href="#" class="active">Editor</a>
+            <a href="#">AI Assistant</a>
+            <a href="#">Analytics</a>
+            <a href="#">Premium</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="editor-container">
+            <div class="input-section">
+                <div class="toolbar glass-effect">
+                    <div class="tool-group">
+                        <button class="tool-btn" data-action="copy" title="Copy"><i class="fas fa-copy"></i></button>
+                        <button class="tool-btn" data-action="paste" title="Paste"><i class="fas fa-paste"></i></button>
+                        <button class="tool-btn" data-action="undo" title="Undo"><i class="fas fa-undo"></i></button>
+                        <button class="tool-btn" data-action="clear" title="Clear"><i class="fas fa-trash"></i></button>
+                    </div>
+                    <div class="tool-group">
+                        <select class="language-select glass-effect" id="languageSelect">
+                            <option value="en">English (US)</option>
+                            <option value="uk">English (UK)</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                        </select>
+                        <button class="tool-btn premium-feature" data-action="voice" title="Voice Input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="tool-btn" data-action="settings" title="Settings">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                    </div>
+                </div>
+                <textarea id="inputText" class="glass-effect" placeholder="Start typing or paste your text here..."></textarea>
+                <div class="text-stats">
+                    <span class="word-count">Words: <span id="wordCount">0</span></span>
+                    <span class="char-count">Characters: <span id="charCount">0</span></span>
+                </div>
+            </div>
+
+            <div class="action-panel">
+                <button id="correctBtn" class="primary-btn gradient-btn">
+                    <i class="fas fa-wand-magic-sparkles"></i> Auto-Correct
+                </button>
+                <button class="secondary-btn glass-btn" id="downloadBtn">
+                    <i class="fas fa-download"></i> Export
+                </button>
+                <button class="secondary-btn glass-btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i> Share
+                </button>
+                <button class="premium-btn pulse" id="premiumBtn">
+                    <i class="fas fa-crown"></i> Go Premium
+                </button>
+            </div>
+
+            <div class="output-section glass-effect">
+                <div class="output-header">
+                    <h2>Enhanced Text</h2>
+                    <div class="output-actions">
+                        <button class="copy-btn glass-btn"><i class="fas fa-copy"></i> Copy</button>
+                        <button class="compare-btn glass-btn"><i class="fas fa-code-compare"></i> Compare</button>
+                    </div>
+                </div>
+                <div id="outputText" class="output-content glass-effect"></div>
+                <div class="correction-stats">
+                    <div class="stat glass-effect">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Corrections: <span id="correctionCount">0</span></span>
+                    </div>
+                    <div class="stat glass-effect">
+                        <i class="fas fa-clock"></i>
+                        <span>Processing Time: <span id="processTime">0.0s</span></span>
+                    </div>
+                    <div class="stat glass-effect">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Accuracy: <span id="accuracy">100%</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar">
+            <div class="suggestions-panel glass-effect">
+                <h3><i class="fas fa-lightbulb"></i> Smart Suggestions</h3>
+                <div id="suggestionsList" class="suggestions-list"></div>
+            </div>
+            <div class="history-panel glass-effect">
+                <h3><i class="fas fa-history"></i> Recent Documents</h3>
+                <div class="history-list">
+                    <div class="history-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="history-details">
+                            <span class="history-title">Document 1</span>
+                            <span class="history-date">2 mins ago</span>
+                        </div>
+                    </div>
+                    <div class="history-item">
+                        <i class="fas fa-file-alt"></i>
+                        <div class="history-details">
+                            <span class="history-title">Document 2</span>
+                            <span class="history-date">Yesterday</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ai-features glass-effect">
+                <h3><i class="fas fa-robot"></i> AI Features</h3>
+                <div class="feature-list">
+                    <button class="feature-btn premium-feature">
+                        <i class="fas fa-language"></i>
+                        <span>Grammar Check</span>
+                    </button>
+                    <button class="feature-btn premium-feature">
+                        <i class="fas fa-text-height"></i>
+                        <span>Style Analysis</span>
+                    </button>
+                    <button class="feature-btn premium-feature">
+                        <i class="fas fa-brain"></i>
+                        <span>AI Suggestions</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-switcher glass-effect">
+        <h4>Theme</h4>
+        <div class="theme-options">
+            <div class="theme-option" style="background-color: #f8fafc;" data-theme="light"></div>
+            <div class="theme-option" style="background-color: #1e293b;" data-theme="dark"></div>
+            <div class="theme-option" style="background-color: #f0fdf4;" data-theme="nature"></div>
+            <div class="theme-option" style="background-color: #fff7ed;" data-theme="warm"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
